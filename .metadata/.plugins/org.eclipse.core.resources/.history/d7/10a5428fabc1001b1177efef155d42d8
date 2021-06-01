@@ -1,0 +1,105 @@
+package cl.empresa.qa.mobile.android.pages;
+
+import org.openqa.selenium.By;
+import org.testng.Assert;
+
+import com.relevantcodes.extentreports.ExtentTest;
+
+import cl.empresa.qa.mobile.android.helpers.Helper;
+import cl.empresa.qa.mobile.android.helpers.MobilePage;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+
+public class LoginPage extends MobilePage {
+
+	// variables inicio sesion
+	private By usuario;
+	private By password;
+	private By btnIngresar;
+	private By validadorLoginCorrecto;
+
+	// variables cierre sesion
+	private By menuDespl;
+	private By configuracion;
+	private By cerrar;
+	private By validadorCierreCorrecto;
+
+	public LoginPage(AndroidDriver<AndroidElement> driver, ExtentTest test, Boolean TAKE_SS, int seconds) {
+		super(driver, test, TAKE_SS, seconds);	
+
+		// Constructor - Variables inicio de sesion en Trello
+		btnIngresar = By.xpath("//android.widget.Button[@text='Ingresar']");
+		usuario = By.xpath("//android.widget.EditText[@bounds='[184,783][852,869]']");
+		password = By.xpath("//android.widget.EditText[@password='true']");
+
+
+		// Constructor para validación de ingreso Correcto
+		validadorLoginCorrecto = By.xpath("//android.widget.TextView[@text='Tableros']");
+
+		// Constructor - variables cierre de sesion
+		menuDespl = By.xpath("//android.widget.ImageButton[@content-desc='Abrir el menú deslizable']");
+		configuracion = By.xpath("//android.widget.TextView[@text='Configuración']");
+		cerrar = By.xpath("//android.widget.TextView[@text='Cerrar sesión']");
+
+		// Constructor para validación de cierre de sesion Correcto
+		validadorCierreCorrecto = By.xpath("//android.widget.TextView[@text='¡A por ello, Trello!']");
+		
+		
+
+	}
+
+	public void logearseAlSistema(String user, String clave, String subDir) {
+		// Ingresar usuario
+		Helper.waitSeconds(10);
+		driver.findElement(usuario).sendKeys(user);
+		Helper.waitSeconds(3);
+		Helper.addEvidence(TAKE_SS, driver, test, "Ingresar usuario", subDir, "imagen_01");
+
+		// Ingresar contraseña
+		driver.findElement(password).sendKeys(clave);
+		Helper.waitSeconds(3);
+		Helper.addEvidence(TAKE_SS, driver, test, "Ingresar Password", subDir, "imagen_02");
+
+		// Presionar boton Ingresar
+		driver.findElement(btnIngresar).click();
+		Helper.waitSeconds(3);
+		Helper.addEvidence(TAKE_SS, driver, test, "Clic en Ingresar", subDir, "imagen_03");
+
+	}
+
+	public void cerrarSession(String subDir) {
+
+		// Mostrar menu desplegable
+		Helper.waitSeconds(5);
+		Helper.addEvidence(TAKE_SS, driver, test, "Seleccionar menu", subDir, "imagen_05");
+		driver.findElement(menuDespl).click();
+		Helper.waitSeconds(5);
+
+		driver.findElement(configuracion).click();
+		Helper.waitSeconds(1);
+		Helper.addEvidence(TAKE_SS, driver, test, "Seleccionar Configuracion", subDir, "imagen_06");
+		Helper.waitSeconds(5);
+
+		driver.findElementByAndroidUIAutomator(
+				"new UiScrollable(new UiSelector()).scrollIntoView(text(\"Cerrar sesión\"));");
+		Helper.waitSeconds(8);
+		Helper.addEvidence(TAKE_SS, driver, test, "Seleccionar Cierre sesion", subDir, "imagen_07");
+		Helper.waitSeconds(5);
+
+		driver.findElement(cerrar).click();
+		Helper.waitSeconds(2);
+		Helper.addEvidence(TAKE_SS, driver, test, "Cerrar Sesion", subDir, "imagen_08");
+		Helper.waitSeconds(2);
+	}
+
+	// Validacion de Prueba Correcta
+	public void assertLoginCorrecto() {
+		Assert.assertTrue(driver.findElement(validadorLoginCorrecto).getText().equalsIgnoreCase("Tableros"));
+	}
+
+	// Validacion de Prueba Correcta
+	public void assertCierreCorrecto() {
+		Assert.assertTrue(
+				driver.findElement(validadorCierreCorrecto).getText().equalsIgnoreCase("¡A por ello, Trello!"));
+	}
+}

@@ -1,0 +1,4 @@
+mobile\android\pages\LoginPage.class
+mobile\android\helpers\Helper.class
+mobile\android\helpers\MobilePage.class
+mobile\android\tests\LoginTest.class

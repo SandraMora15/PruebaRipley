@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [PruebaAndroid]">
+  <parameter name="password" value="1234"/>
+  <parameter name="suite" value="Prueba_Ripley"/>
+  <parameter name="application" value="app-debug.apk"/>
+  <parameter name="mail" value="tet@test.com"/>
+  <parameter name="newUser" value="175936386"/>
+  <parameter name="url_server" value="http://0.0.0.0:4723/wd/hub"/>
+  <parameter name="name" value="Pruebas Android"/>
+  <parameter name="numberC" value="17593638"/>
+  <parameter name="device" value="emulator-5554"/>
+  <parameter name="user" value="175936386"/>
+  <parameter name="claveInval" value="4321"/>
+  <test thread-count="5" verbose="0" name="Test(failed)">
+    <classes>
+      <class name="mobile.android.tests.LoginTest">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="loginNOK" invocation-numbers="0"/>
+          <include name="transferir" invocation-numbers="0"/>
+          <include name="configExtentReports"/>
+          <include name="configSelenium"/>
+          <include name="closeExtentReports"/>
+          <include name="loginOK" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- mobile.android.tests.LoginTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [PruebaAndroid] -->

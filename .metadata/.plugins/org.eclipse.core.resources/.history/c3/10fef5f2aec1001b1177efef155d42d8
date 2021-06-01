@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="PruebaAndroid">
+
+	<!-- Suite para el reporte y configuracion del id del dispositivo -->	
+	<parameter name="suite" value="Prueba_Trello" />
+	<parameter name="device" value="emulator-5554" />
+
+	<!-- Instalamos una aplicacion en particular o no -->
+    <!-- 	<parameter name="application" value="none" /> -->
+	<parameter name="application" value="app-debug.apk" />
+	
+	<parameter name="app_package" value="com.trello" /> 
+	<parameter name="app_activity" value="com.trello.home.HomeActivity" /> 
+
+
+	<!-- Url del servidor Appium -->
+	<parameter name="url_server" value="http://0.0.0.0:4723/wd/hub" />
+
+	<!-- Parametros para la utilizacion de excel -->
+	<parameter name="ruta_excel" value="src/test/resources/excels/prueba.xlsx" />
+	<parameter name="hoja" value="Hoja1" />
+	
+	<!-- Parametros para Login Correcto -->
+	<parameter name="user" value= "175936386" />
+	<parameter name="password" value="1234" />
+
+<!-- 	<test name="Test01">
+		<classes>
+			<class name="cl.empresa.qa.mobile.android.tests.LoginCorrectoTest">
+				<methods>
+					<include name="pruebaApp" />
+				</methods>
+			</class>
+		</classes>
+	</test> -->
+	
+	<test name="Test02">
+		<classes>
+			<class name="cl.empresa.qa.mobile.android.tests.CrearTableroTest">
+				<methods>
+					<include name="crearTab" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

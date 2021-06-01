@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="PruebaAndroid">
+
+	<!-- Suite para el reporte y configuracion del id del dispositivo -->	
+	<parameter name="suite" value="Prueba_Ripley" />
+	<parameter name="device" value="emulator-5554" />
+
+	<!-- Instalamos una aplicacion en particular o no -->
+    <!-- 	<parameter name="application" value="none" /> -->
+	<parameter name="application" value="app-debug.apk" />
+
+
+	<!-- Url del servidor Appium -->
+	<parameter name="url_server" value="http://0.0.0.0:4723/wd/hub" />
+
+	
+	<!-- Parametros para Login Correcto -->
+	<parameter name="user" value= "175936386" />
+	<parameter name="password" value="1234" />
+	<parameter name="claveInval" value="4321" />
+	<parameter name="name" value="Pruebas Android" />
+	<parameter name="newUser" value="175936386" />
+	<parameter name="mail" value="tet@test.com" />
+	<parameter name="newUser" value="17593638" />
+	
+	<test name="Test">
+		<classes>
+			<class name="mobile.android.tests.LoginTest">
+				<methods>
+					<include name="tr" />
+<!-- 					<include name="loginNOK" />
+					<include name="loginOK" /> -->
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

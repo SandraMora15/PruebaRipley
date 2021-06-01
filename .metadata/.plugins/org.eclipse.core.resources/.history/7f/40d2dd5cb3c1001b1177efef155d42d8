@@ -1,0 +1,50 @@
+package cl.empresa.qa.mobile.android.pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.relevantcodes.extentreports.ExtentTest;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import mobile.android.helpers.Helper;
+import mobile.android.helpers.MobilePage;
+
+public class CrearTarjetasPage extends MobilePage{
+
+	// Atributos automatizacion
+	private WebDriver driver;
+	private ExtentTest test;
+	private boolean TAKE_SS;
+
+	// variables aplicacion
+	private By nuevaTarjet;
+	private By nombreTarj;
+
+	public CrearTarjetasPage(AndroidDriver<AndroidElement> driver, ExtentTest test, Boolean TAKE_SS, int seconds) {
+		super(driver, test, TAKE_SS, seconds);
+
+		// Constructor de atributos de automatizacion
+		this.driver = driver;
+		this.test = test;
+		this.TAKE_SS = TAKE_SS;
+		this.wait = new WebDriverWait(driver, seconds);
+		
+		// constructor de la clase
+		this.nuevaTarjet = By.id("com.trello:id/add_button");
+		this.nombreTarj = By.id("com.trello:id/card_name_edit_text");
+	
+	}
+
+	public void nuevaTarjera(String subDir) {
+
+		// Nombre a tarjeta 1
+		Helper.waitSeconds(5);
+		driver.findElement(nuevaTarjet).click();
+		Helper.addEvidence(TAKE_SS, driver, test, "Crear Tablero Nuevo", subDir, "imagen_09");
+		Helper.waitSeconds(2);
+
+	}
+
+}

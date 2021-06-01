@@ -1,0 +1,42 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 365.419 s <<< FAILURE! - in TestSuite
+transferir(mobile.android.tests.LoginTest)  Time elapsed: 16.186 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.Button[@text='Ingresar'] (tried for 10 second(s) with 500 milliseconds interval)
+	at mobile.android.tests.LoginTest.transferir(LoginTest.java:116)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-874M20SN', ip: '192.168.0.9', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: C:\Proyecto-Mobile\Android\..., appPackage: cl.bancoripley.appbanco, databaseEnabled: false, desired: {app: C:\Proyecto-Mobile\Android\..., deviceName: emulator-5554, platformName: android}, deviceApiLevel: 29, deviceManufacturer: unknown, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 440, deviceScreenSize: 1080x2160, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.75, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 66, takesScreenshot: true, viewportRect: {height: 1962, left: 0, top: 66, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 5291f7f8-b8c3-4a8e-823b-04e1fc0c0f5d
+*** Element info: {Using=xpath, value=//android.widget.Button[@text='Ingresar']}
+	at mobile.android.tests.LoginTest.transferir(LoginTest.java:116)
+
+loginNOK(mobile.android.tests.LoginTest)  Time elapsed: 39.21 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-874M20SN', ip: '192.168.0.9', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: C:\Proyecto-Mobile\Android\..., appPackage: cl.bancoripley.appbanco, databaseEnabled: false, desired: {app: C:\Proyecto-Mobile\Android\..., deviceName: emulator-5554, platformName: android}, deviceApiLevel: 29, deviceManufacturer: unknown, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 440, deviceScreenSize: 1080x2160, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.75, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 66, takesScreenshot: true, viewportRect: {height: 1962, left: 0, top: 66, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 851110ae-700c-4301-9e95-c2bad2f5ecc5
+*** Element info: {Using=xpath, value=//android.view.View[@text='Usuario o clave incorrecta.']}
+	at mobile.android.tests.LoginTest.loginNOK(LoginTest.java:101)
+
+loginOK(mobile.android.tests.LoginTest)  Time elapsed: 38.977 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-874M20SN', ip: '192.168.0.9', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {app: C:\Proyecto-Mobile\Android\..., appPackage: cl.bancoripley.appbanco, databaseEnabled: false, desired: {app: C:\Proyecto-Mobile\Android\..., deviceName: emulator-5554, platformName: android}, deviceApiLevel: 29, deviceManufacturer: unknown, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenDensity: 440, deviceScreenSize: 1080x2160, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.75, platform: LINUX, platformName: Android, platformVersion: 10, statBarHeight: 66, takesScreenshot: true, viewportRect: {height: 1962, left: 0, top: 66, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 9213871a-050d-4762-81ff-4cdb356f628e
+*** Element info: {Using=xpath, value=//android.view.View[@text='home']}
+	at mobile.android.tests.LoginTest.loginOK(LoginTest.java:84)
+

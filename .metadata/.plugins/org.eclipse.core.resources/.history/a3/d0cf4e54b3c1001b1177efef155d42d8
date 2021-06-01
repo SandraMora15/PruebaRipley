@@ -1,0 +1,43 @@
+package cl.empresa.qa.mobile.android.vo;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+
+import cl.empresa.qa.mobile.android.helpers.Helper;
+
+public class PruebaVO {
+	private String user;
+	private String clave;
+	private String tablero1;
+
+	
+
+	public PruebaVO(String rutaExcel, String hoja) {
+
+		XSSFSheet sheet = Helper.obtenerPaginaExcel(rutaExcel, hoja);
+
+		this.user = Helper.obtenerCelda(sheet, 1, "B").getStringCellValue();
+		this.clave = Helper.obtenerCelda(sheet, 2, "B").getStringCellValue();
+		this.tablero1 = Helper.obtenerCelda(sheet, 3, "B").getStringCellValue();
+	}
+
+
+	public String getUser() {
+		return user;
+	}
+
+	public String getClave() {
+		return clave;
+	}
+
+	public String getTablero1() {
+		return tablero1;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "PruebaVO [user=" + user + ", clave=" + clave + ", tablero1=" + tablero1 + "]";
+	}
+
+}

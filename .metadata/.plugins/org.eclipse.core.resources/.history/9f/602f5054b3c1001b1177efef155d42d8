@@ -1,0 +1,132 @@
+package cl.empresa.qa.mobile.android.pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.relevantcodes.extentreports.ExtentTest;
+
+import cl.empresa.qa.mobile.android.helpers.Helper;
+import cl.empresa.qa.mobile.android.helpers.MobilePage;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+
+public class TransferenciaPage extends MobilePage {
+
+	// Atributos automatizacion
+	private WebDriver driver;	
+	private ExtentTest test;	
+	private boolean TAKE_SS;
+
+	// Atributos crear tablero nuevo
+	private By nuevoTab;
+	private By nombreTab;
+	private By visibilidad;
+	private By privado;
+	private By btnCrearTab;
+	
+	// Atributos crear Lista nueva
+	private By nuevaLis;
+	private By nombreLis;
+	private By btnCrearLis;
+	
+	// Atributos Abrir nueva lista.
+	private By abrirTablero;
+
+	public TransferenciaPage(AndroidDriver<AndroidElement> driver, ExtentTest test, Boolean TAKE_SS, int seconds) {
+		super(driver, test, TAKE_SS, seconds);
+		// TODO Auto-generated constructor stub
+		
+		// Constructor de atributos de automatizacion
+		this.driver = driver;
+		this.test = test;
+		this.TAKE_SS = TAKE_SS;
+		this.wait = new WebDriverWait(driver, seconds);
+		
+		// Constructor - variables creacion de tablero
+		this.nuevoTab = By.id("com.trello:id/add_fab");
+		this.nombreTab = By.id("com.trello:id/board_name");
+		this.visibilidad = By.id("com.trello:id/visibility_spinner");
+		this.privado = By.xpath("//android.widget.CheckedTextView[@text='Privado']");
+		this.btnCrearTab = By.id("com.trello:id/create_board");
+		
+		//Constructor para crear lista
+		this.nuevaLis = By.id("com.trello:id/add_list_button");
+		this.nombreLis = By.id("com.trello:id/list_name_edit_text");
+		this.btnCrearLis = By.id("com.trello:id/confirm");
+		
+		//Contructor Abri de nuevo el tablero
+		this.abrirTablero = By.xpath("//android.widget.TextView[@text='Mi Primer Tablero']");
+
+	}
+
+	public void tableroNuevo(String tablero1, String subDir) {
+		// Clic en boton crear tablero nuevo
+		Helper.waitSeconds(5);
+		driver.findElement(nuevoTab).click();
+		Helper.addEvidence(TAKE_SS, driver, test, "Crear Tablero Nuevo", subDir, "imagen_09");
+		Helper.waitSeconds(2);
+
+		// nombre del tablero nuevo
+		driver.findElement(nombreTab).sendKeys(tablero1);
+		Helper.addEvidence(TAKE_SS, driver, test, "Nombre tablero", subDir, "imagen_10");
+		Helper.waitSeconds(2);
+
+		// Seleccionar visibilidad Privado
+		driver.findElement(visibilidad).click();
+		Helper.waitSeconds(3);
+		Helper.addEvidence(TAKE_SS, driver, test, "Visibilidad", subDir, "imagen_11");
+		driver.findElement(privado).click();
+		Helper.addEvidence(TAKE_SS, driver, test, "Privada", subDir, "imagen_12");
+		Helper.waitSeconds(3);
+
+		// crear tablero
+		driver.findElement(btnCrearTab).click();
+		Helper.waitSeconds(6);
+		Helper.addEvidence(TAKE_SS, driver, test, "Crear Tablero", subDir, "imagen_13");
+
+	}
+
+	public void crearLista(String lista1, String subDir) {
+		// crear lista
+		driver.findElement(nuevaLis).click();
+		// Dar nombre a lista
+		driver.findElement(nombreLis).sendKeys(lista1);
+		Helper.waitSeconds(3);
+		Helper.addEvidence(TAKE_SS, driver, test, "Nombre de Lista", subDir, "imagen_15");
+		driver.findElement(btnCrearLis).click();
+		// Cerrar teclado de pantalla		
+		Helper.waitSeconds(3);
+		Helper.addEvidence(TAKE_SS, driver, test, "Listas", subDir, "imagen_16");
+
+	}
+
+	public void lista2(String lista2, String subDir) {
+		// crear lista
+		driver.findElement(nuevaLis).click();
+		// Dar nombre a lista
+		driver.findElement(nombreLis).sendKeys(lista2);
+		Helper.waitSeconds(3);
+		Helper.addEvidence(TAKE_SS, driver, test, "Nombre de Lista Nueva", subDir, "imagen_17");
+		driver.findElement(btnCrearLis).click();
+		// Cerrar teclado de pantalla
+		Helper.waitSeconds(3);
+		Helper.addEvidence(TAKE_SS, driver, test, "Listados", subDir, "imagen_18");
+
+	}
+
+	public void lista3(String lista3, String subDir) {
+		// crear lista
+		driver.findElement(nuevaLis).click();
+		// Dar nombre a lista
+		driver.findElement(nombreLis).sendKeys(lista3);
+		Helper.waitSeconds(3);
+		Helper.addEvidence(TAKE_SS, driver, test, "Nombre de Lista Nueva", subDir, "imagen_19");
+		driver.findElement(btnCrearLis).click();
+		// Cerrar teclado de pantalla
+		Helper.waitSeconds(3);
+		Helper.addEvidence(TAKE_SS, driver, test, "Listados", subDir, "imagen_20");
+
+	}
+
+}
